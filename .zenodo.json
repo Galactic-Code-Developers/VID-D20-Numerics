@@ -1,0 +1,22 @@
+{
+  "title": "Numerical backend and figures for: Diagrammatic Quantum Geometry Beyond The Feynman Diagrams",
+  "version": "1.0.0",
+  "description": "Exact reproducible code and data for the VID paper (2025). Includes infinity-sector convergence plot, 20x20 dodecahedral Laplacian and its pseudoinverse, and three-node amplitude diagnostics.",
+  "creators": [
+    {
+      "name": "Valamontes, Antonios",
+      "affiliation": "Kapodistrian Academy of Science",
+      "orcid": "0000-0002-1825-0097"
+    }
+  ],
+  "keywords": [
+    "quantum geometry",
+    "nonperturbative QFT",
+    "infinity algebra",
+    "dodecahedral lattice",
+    "emergent curvature"
+  ],
+  "license": "cc-by-4.0",
+  "upload_type": "software",
+  "access_right": "open"
+}
