@@ -1,12 +1,17 @@
 # Valamontes Interaction Diagrams (VID) — Reproducibility Package
 
-This repository contains all components required to reproduce the numerical results associated with the VID framework, including:
+[![Python](https://img.shields.io/badge/python-3.10+-blue.svg)]()
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)]()
+[![Zenodo](https://zenodo.org/badge/doi/10.5281/zenodo.17850442.svg)](https://doi.org/10.5281/zenodo.17850442)
+
+This repository contains all components required to reproduce the numerical results associated with the **Valamontes Interaction Diagrams (VID)** framework, including:
 
 - Construction of the 20×20 DLSFH Laplacian  
 - Moore–Penrose pseudoinverse computation  
 - Three-node VID example  
-- Default parameters used in figures  
-- Reproducibility notes and environment instructions  
+- ∞-sector convergence demonstrations  
+- α-dependent ∞-sector convergence comparison  
+- Fully reproducible environment and archived datasets  
 
 ---
 
@@ -14,45 +19,59 @@ This repository contains all components required to reproduce the numerical resu
 
 Create and activate the environment:
 
-    conda create -n vid python=3.10
-    conda activate vid
-    pip install -r requirements.txt
+```bash
+conda create -n vid python=3.10
+conda activate vid
+pip install -r requirements.txt
+```
 
-Exact package versions may be pinned (example set):
+Alternatively:
 
-    numpy==1.25.0
-    scipy==1.11.0
-    matplotlib==3.8.0
-    networkx==3.1
-    tqdm==4.66.1
-    papermill==2.4.0
-
-Alternatively, use:
-
-    conda env create -f environment.yml
-    conda activate vid
+```bash
+conda env create -f environment.yml
+conda activate vid
+```
 
 ---
 
-## 2. Reproduction Commands (Three-Node Example)
+## 2. Install the VID Numerics Package
+
+Install locally:
+
+```bash
+pip install -e .
+```
+
+Use in Python:
+
+```python
+from vid_numerics import build_dlsfh_laplacian, compute_pseudoinverse
+```
+
+---
+
+## 3. Reproduction Commands (Three-Node Example)
 
 ### Build the DLSFH Laplacian
-
-    python scripts/build_DLSFH.py --N=20 --out=Delta20.npy
+```bash
+python scripts/build_DLSFH.py --N=20 --out=Delta20.npy
+```
 
 ### Compute the pseudoinverse
+```bash
+python scripts/compute_pseudoinverse.py --in Delta20.npy --out=Delta20_pinv.npy
+```
 
-    python scripts/compute_pseudoinverse.py --in Delta20.npy --out Delta20_pinv.npy
+### Run the three-node VID notebook
+```bash
+jupyter notebook notebooks/three_node_example.ipynb
+```
 
-### Run the three-node VID example
-
-    python notebooks/three_node_example.ipynb
-
-(Or execute non-interactively using papermill.)
+(Or execute via `papermill`.)
 
 ---
 
-## 3. Default Parameters Used in Figures
+## 4. Default Parameters Used in Figures
 
 - Coherence parameters  
 - Infinity-sector truncation `N`  
@@ -63,65 +82,91 @@ All exact values appear inside notebooks and scripts.
 
 ---
 
-## 4. Reproducibility Runtimes
+## 5. Reproducibility Runtimes
 
 Typical runtimes on an 8-core CPU:
 
-- DLSFH Laplacian construction: < 0.05 s  
+- Laplacian construction: < 0.05 s  
 - Pseudoinverse computation: 0.2–0.4 s  
 - Three-node example: 0.3–0.5 s  
 - Infinity-sector convergence: ≤ 1.2 s  
 
 ---
 
-## 5. License
-
-- Code: **MIT License**  
-- Notebooks: **CC-BY 4.0**  
-
----
-
 ## 6. Precomputed Data and Figures (Zenodo DOI)
 
-Precomputed numerical data and figures are available at:
+All numerical datasets and figure outputs are available at:
 
-    Zenodo DOI: https://doi.org/10.5281/zenodo.17850442
+**https://doi.org/10.5281/zenodo.17850442**
 
 Includes:
 
 - `Delta20.npy`  
 - `Delta20_pinv.npy`  
-- All figure data  
+- All figure data used in the VID paper  
 - Default parameter files  
 
 ---
 
-## 7. Repository Structure
+## 7. Notebooks
 
-    scripts/
-        build_DLSFH.py
-        compute_pseudoinverse.py
-        utils.py
+See detailed descriptions in:  
+[`notebooks/README.md`](notebooks/README.md)
 
-    notebooks/
-        three_node_example.ipynb
-        infinity_sector_convergence.ipynb
-        coherence_flow_demo.ipynb
+Available notebooks:
 
-    data/
-        Delta20.npy
-        Delta20_pinv.npy
-        parameters.json
-
-    requirements.txt
-    environment.yml
-    README.md
+- `three_node_example.ipynb`  
+- `infinity_sector_convergence.ipynb`  
+- `infinity_alpha_comparison.ipynb`  
 
 ---
 
-## 8. Citation
+## 8. Repository Structure
+
+```
+scripts/
+    build_DLSFH.py
+    compute_pseudoinverse.py
+    utils.py
+
+notebooks/
+    three_node_example.ipynb
+    infinity_sector_convergence.ipynb
+    infinity_alpha_comparison.ipynb
+    README.md
+
+data/
+    Delta20.npy
+    Delta20_pinv.npy
+    parameters.json
+
+vid_numerics/
+    __init__.py
+    laplacian.py
+    pseudoinverse.py
+
+tests/
+    test_laplacian.py
+
+requirements.txt
+environment.yml
+LICENSE
+pyproject.toml
+README.md
+```
+
+---
+
+## 9. Running the Test Suite
+
+```bash
+pytest tests/
+```
+
+---
+
+## 10. Citation
 
 If you use this code or its numerical outputs, please cite:
 
-**Valamontes, A. (2025). From Feynman Diagrams to Valamontes Interaction Diagrams (VID).**
-
+**Valamontes, A. (2025). _From Feynman Diagrams to Valamontes Interaction Diagrams (VID)._**
