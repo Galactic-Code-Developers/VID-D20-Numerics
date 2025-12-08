@@ -21,7 +21,7 @@ Demonstrates the minimal three-node VID computation using the DLSFH Laplacian
 - How to load the Laplacian and pseudoinverse  
 - How to extract a 3-node subsystem  
 - Computation of effective resistance:  
-  \( R_{ij} = L^+_{ii} + L^+_{jj} - 2 L^+_{ij} \)  
+  $ R_{ij} = L^+_{ii} + L^+_{jj} - 2 L^+_{ij} $  
 - Heatmap visualization of the 3×3 resistance (proxy for a local VID amplitude)
 
 **Dependencies:**  
@@ -33,15 +33,15 @@ Demonstrates the minimal three-node VID computation using the DLSFH Laplacian
 
 **Purpose:**  
 Illustrates the **∞-sector convergence** using a finite-dimensional toy operator  
-\( K = \alpha L^+ / \|L^+\|_2 \).
+$ K = \alpha L^+ / \|L^+\|_2 $.
 
 **Features:**
 
-- Constructs partial sums \( S_N = \sum_{n=0}^{N} K^n \)  
-- Treats \( S_{N_{\max}} \) as the “∞-sector” reference solution  
+- Constructs partial sums $ S_N = \sum_{n=0}^{N} K^n $  
+- Treats $ S_{N_{\max}} $ as the “∞-sector” reference solution  
 - Computes two error metrics:  
-  - Operator 2-norm \( \|S_N - S_{N_{\max}}\|_2 \)  
-  - Frobenius norm \( \|S_N - S_{N_{\max}}\|_F \)  
+  - Operator 2-norm $ \|S_N - S_{N_{\max}}\|_2 $  
+  - Frobenius norm $ \|S_N - S_{N_{\max}}\|_F $  
 - Produces log-scale convergence plots  
 - Demonstrates how VID-style operator towers converge to stable nonperturbative objects
 
