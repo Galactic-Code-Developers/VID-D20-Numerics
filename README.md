@@ -85,7 +85,7 @@ Typical runtimes on an 8-core CPU:
 
 Precomputed numerical data and figures are available at:
 
-    Zenodo DOI: (insert DOI here)
+    Zenodo DOI: https://doi.org/10.5281/zenodo.17850442
 
 Includes:
 
