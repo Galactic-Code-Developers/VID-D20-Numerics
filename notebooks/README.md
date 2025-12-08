@@ -21,7 +21,7 @@ Demonstrates the minimal three-node VID computation using the DLSFH Laplacian
 - How to load the Laplacian and pseudoinverse  
 - How to extract a 3-node subsystem  
 - Computation of effective resistance:  
-  `$\(R_{ij} = L^+_{ii} + L^+_{jj} - 2 L^+_{ij}\)`$  
+  $$\R_{ij} = L^+_{ii} + L^+_{jj} - 2 L^+_{ij}\$$  
 - Heatmap visualization of the 3×3 resistance (proxy for a local VID amplitude)
 
 **Dependencies:**  
