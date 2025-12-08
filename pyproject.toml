@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vid-numerics"
+version = "0.1.0"
+description = "Numerical utilities for Valamontes Interaction Diagrams (VID)"
+authors = [
+  { name = "Antonios Valamontes" }
+]
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.25",
+]
+
+[project.urls]
+Homepage = "https://github.com/your-user/vid-numerics"
