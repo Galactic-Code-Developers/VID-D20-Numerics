@@ -1,0 +1,16 @@
+{
+  "lattice": "DLSFH (20-vertex dodecahedral graph)",
+  "operator": "Delta20 (graph Laplacian)",
+  "pseudoinverse": "Delta20_pinv (Moore–Penrose)",
+  "coherence_coupling_kappa": 0.3,
+  "truncation_depth_N": 50,
+  "epsilon_infinity": 1e-10,
+  "random_seed": 42,
+  "smoothing": "none",
+  "normalization": "SGCV coherence normalization",
+  "units": {
+    "Delta": "dimensionless graph Laplacian",
+    "Delta_pinv": "dimensionless propagator",
+    "path_length": "graph-edge units"
+  }
+}
